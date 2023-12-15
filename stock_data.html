@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stock Dashboard</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+      <style>
+
+        /* Rest of your CSS styles */
+
+
+        /* Add custom styles for the chart options */
+
+
+        /* Add custom styles for the stock data table */
+        #stock-data-table {
+            font-family: Arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        #stock-data-table th, #stock-data-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        #stock-data-table th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="content">
+        <h2>Stock Data</h2>
+        <table id="stock-data-table">
+            <tr>
+                                <th>Symbol</th>
+                <th>open</th>
+                <th>DayHigh</th>
+                <th>DayLow</th>
+                <th>LastPrice</th>
+                <th>PreviousClose</th>
+                <th>Change</th>
+                <th>TotalTradedVolume</th>
+                <!-- Add more headers if needed -->
+            </tr>
+            {% for stock in stock_data %}
+                <tr>
+                      <td>{{ stock.symbol }}</td>
+                        <td>{{ stock.open }}</td>
+                        <td>{{ stock.dayHigh }}</td>
+                        <td>{{ stock. dayLow}}</td>
+                        <td>{{ stock.lastPrice }}</td>
+                        <td>{{ stock.previousClose }}</td>
+                        <td>{{ stock.change }}</td>
+                        <td>{{ stock.totalTradedVolume }}</td>
+                    <!-- Add more columns if needed -->
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    <script>
+        // Load Google Charts library and draw line chart...
+    </script>
+</body>
+</html>
+

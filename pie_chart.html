@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pie Chart</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body>
+    <div id="chartContainer" style="width: 100%; height: 800px;"></div>
+
+    <script>
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(drawPieChart);
+
+        function drawPieChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'Symbol');
+            data.addColumn('number', 'Last Price');
+
+            // Add data from Flask variable (stock_data)
+            {% for stock in stock_data %}
+                data.addRow(['{{ stock.symbol }}', {{ stock.lastPrice }}]);
+            {% endfor %}
+
+            var options = {
+                title: 'STOCKS - LATEST PRICES',
+            };
+
+            var chart = new google.visualization.PieChart(document.getElementById('chartContainer'));
+            chart.draw(data, options);
+        }
+    </script>
+</body>
+</html>

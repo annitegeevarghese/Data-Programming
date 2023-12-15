@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Line Chart</title>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+</head>
+<body class="{{ page_class }}">
+    <div id="chartContainer" style="width: 100%; height: 400px;"></div>
+
+
+    <script>
+        google.charts.load('current', {packages: ['corechart']});
+        google.charts.setOnLoadCallback(drawLineChart);
+
+        function drawLineChart() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', 'change');
+            data.addColumn('number', 'price change');
+
+            // Add data from Flask variable (stock_data)
+            {% for stock in stock_data %}
+                data.addRow(['{{ stock.identifier }}', {{ stock.change }}]);
+            {% endfor %}
+
+   var options = {
+                title: 'STOCK PRICE CHANGE ',
+                chartArea: { width: '80%', height: '60%' }, // Adjust chart area dimensions
+                hAxis: {
+                    title: 'stocks',
+                    titleTextStyle: { color: '#333' }, // Text color for the title
+                    textStyle: { color: '#333' }, // Text color for axis labels
+                    titlePosition: 'out',
+                    slantedText: true,
+                    slantedTextAngle: 18,
+                    baseline: 5, // Adjust the baseline to move the label a bit lower
+                    maxTextLines: 1, // Allow multiple lines of text
+                    minTextSpacing: 10 // Adjust spacing between text lines
+                },
+                vAxis: {
+                    title: 'Change',
+                    titleTextStyle: { color: '#333' }, // Text color for the title
+                    textStyle: { color: '#333' } // Text color for axis labels
+                }
+            };
+
+
+
+
+
+            var chart = new google.visualization.LineChart(document.getElementById('chartContainer'));
+            chart.draw(data, options);
+        }
+    </script>
+</body>
+</html>

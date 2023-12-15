@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+ <h1 class= "heading"; style="text-align: center; color: PURPLE;">GROUP 12 FINAL PROJECT (BDAT1004) - NIFTY 50 PREDICTIVE ANALYSIS </h1>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-image: url('/static/img.png'); /* Make sure the path is correct */
+            background-size: cover;
+            background-repeat: no-repeat;
+            font-family: Arial, sans-serif;
+        }
+        /* Style for icon buttons */
+.btn-icon {
+    text-decoration: none;
+    color: blue;
+    font-weight: bold;
+    padding: 20px 30px;
+     font-size: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    transition: background-color 0.3s, color 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Style for icon */
+.btn-icon i {
+    font-size: 2.2rem;
+}
+/* Inline style for names container */
+        #names-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f2f2f2;
+        }
+
+        /* Inline style for names text */
+        .names {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            font-size: 20px;
+            color: gray;
+        }
+
+        /* Rest of your CSS styles */
+
+    </style>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+</head>
+<body>
+
+    <div id="nav-container">
+        <ul id="nav-list">
+            <!-- HTML with Font Awesome icons -->
+     <a href="/line-chart" class="btn btn-icon"><i class="fas fa-chart-line"></i> Line Chart</a>
+     <a href="/barchart" class="btn btn-icon"><i class="fas fa-chart-bar"></i> Bar Chart</a>
+     <a href="/pie-chart" class="btn btn-icon"><i class="fas fa-chart-pie"></i> Pie Chart</a>
+      <a href="/stock-data" class="btn btn-icon"><i class="fas fa-table"></i> Stock Data</a>
+
+        </ul>
+    </div>
+<div id="names-container">
+    <p class="names">Richard Joshi | Navjeet Kaur | Anoop P Bright | Vinayak Ramachandran</p>
+</div>
+
+
+</body>
+</html>
